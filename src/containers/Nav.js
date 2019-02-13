@@ -1,8 +1,15 @@
 import { connect } from 'react-redux';
+import { push } from 'react-router-redux';
 import Nav from '../components/Nav';
 
 const mapStateToProps = (state) => {
   return { categories: state.shopping.categories };
 };
 
-export default connect(mapStateToProps)(Nav);
+const mapDisptchToProps = (dispatch) => {
+  return {
+    onClick: (path) => { dispatch(push(path)); }
+  }
+}
+
+export default connect(mapStateToProps, mapDisptchToProps)(Nav);

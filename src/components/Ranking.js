@@ -1,5 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Button from '@material-ui/core/Button';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Typography from '@material-ui/core/Typography';
 
 class Ranking extends React.Component {
   componentWillMount() {
@@ -34,14 +40,23 @@ class Ranking extends React.Component {
             return <p>読み込み中...</p>
           } else {
             return (
-              <ol>
-                {ranking.map((item) => (
-                  <li key={`ranking-item-${item.code}`}>
-                    <img alt={item.name} src={item.imageUrl} />
-                    <a href={item.url} target="_blank" rel="noopener noreferrer">{ item.name }</a>
-                  </li>
+              <div>
+                {ranking.map((item, i) => (
+                  <Card key={`ranking-item-${item.code}`} style={{ maxWidth: '500px', margin: '32px auto' }}>
+                    <CardMedia component="img" image={item.imageUrl} title={`${i + 1}位${item.name}`} style={{ objectFit: "cover" }}　/>
+                    <CardContent>
+                      <Typography type="title">
+                        {`${i + 1}位${item.name}`}
+                      </Typography>
+                    </CardContent>
+                    <CardActions>
+                      <Button raised color="secondary" FullWidth href={item.url}>
+                        商品ページへ
+                      </Button>
+                    </CardActions>
+                  </Card>
                 ))}
-              </ol>
+              </div>
             );
           }
         })()}
