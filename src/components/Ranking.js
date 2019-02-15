@@ -50,7 +50,7 @@ class Ranking extends React.Component {
                       </Typography>
                     </CardContent>
                     <CardActions>
-                      <Button raised color="secondary" FullWidth href={item.url}>
+                      <Button raised="true" color="secondary" fullwidth="true" href={item.url}>
                         商品ページへ
                       </Button>
                     </CardActions>
