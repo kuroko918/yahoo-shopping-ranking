@@ -24,3 +24,7 @@ yarn-error.log*
 
 # environment variables file
 src/env.js
+
+# firebase data
+.firebase
+.firebaserc
