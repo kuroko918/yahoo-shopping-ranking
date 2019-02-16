@@ -3,7 +3,7 @@ import qs from 'qs';
 import { replace } from 'react-router-redux';
 import config from '../env';
 
-const API_URL = 'http://shopping.yahooapis.jp/ShoppingWebService/V1/json/categoryRanking';
+const API_URL = 'https://shopping.yahooapis.jp/ShoppingWebService/V1/json/categoryRanking';
 
 const startRequest = (category) => {
   return {
